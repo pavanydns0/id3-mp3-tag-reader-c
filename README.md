@@ -111,7 +111,7 @@ Structures
 Defensive error handling
 
 Modular program design
-
+```
 📂 Project Structure
 
 mp3-tag-reader/
@@ -122,7 +122,7 @@ mp3-tag-reader/
 ├── types.h
 ├── sample.mp3
 └── README.md
-
+```
 ⚙️ Compilation
 
 Compile using:
