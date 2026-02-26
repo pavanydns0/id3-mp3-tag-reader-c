@@ -1,28 +1,28 @@
 🎵 MP3 Tag Reader in C
-Binary-Level ID3v2 Metadata Parser
-🚀 Project Overview
+🔎 Binary-Level ID3v2 Metadata Parser
+🚀 Project Summary
 
-This project is a command-line MP3 Tag Reader implemented in C that extracts metadata from MP3 files by manually parsing ID3v2 tags at the binary level.
+This is a command-line MP3 Tag Reader implemented in C that extracts metadata from MP3 files by manually parsing ID3v2 tags at the binary level.
 
-Unlike high-level libraries, this implementation works directly with raw byte streams, interpreting frame structures exactly as defined in the ID3 specification.
+The project reads raw byte streams and decodes structured frame data without using any external libraries.
 
-🔹 This project demonstrates strong control over:
+It demonstrates strong understanding of:
 
 Binary file processing
 
 Byte-level parsing
 
-Frame-based data extraction
+Frame-based data structures
 
 Endianness handling
 
-Structured modular programming
+Modular C design
 
-🧠 Why This Project Is Important
+🎯 Problem Statement
 
-Modern media players automatically display metadata like:
+MP3 files store metadata such as:
 
-Song Title
+Title
 
 Artist
 
@@ -32,15 +32,15 @@ Year
 
 Genre
 
-But internally, this information is stored inside structured ID3 frames.
+inside structured ID3v2 frames.
 
-This project manually decodes those frames without using any external libraries — purely using C and file handling.
+Most applications use libraries to read this data.
 
-This reflects a strong systems-level mindset, where data is interpreted exactly as it is stored in memory.
+This project manually decodes those frames directly from the binary file structure.
 
-🔍 Understanding ID3v2 Structure
+🔍 ID3v2 File Structure Overview
 
-An MP3 file containing ID3v2 metadata begins with:
+An MP3 file with ID3v2 metadata begins with:
 
 3 bytes → "ID3" identifier
 
@@ -50,13 +50,13 @@ An MP3 file containing ID3v2 metadata begins with:
 
 4 bytes → Tag Size
 
-After the header, multiple frames follow.
+After the header, multiple metadata frames follow.
 
 🧩 Frame Structure
 
-Each frame contains:
+Each metadata frame contains:
 
-4 bytes → Frame ID (e.g., TIT2, TPE1)
+4 bytes → Frame ID (TIT2, TPE1, etc.)
 
 4 bytes → Frame Size
 
@@ -64,7 +64,7 @@ Each frame contains:
 
 Frame Data
 
-🎼 Supported Frame IDs
+🎼 Supported Frames
 Frame ID	Meaning
 TIT2	Title
 TPE1	Artist
@@ -72,35 +72,23 @@ TALB	Album
 TYER	Year
 TCON	Genre
 COMM	Comment
-⚙️ Internal Working
-
-The program:
+⚙️ How the Program Works
 
 Opens MP3 file in binary mode
 
 Validates "ID3" signature
 
-Reads header and calculates tag size
+Reads and interprets header
 
-Iterates frame-by-frame
+Calculates total tag size
 
-Extracts frame data based on frame size
+Iterates through frames
 
-Converts binary data into readable text
+Extracts metadata based on frame size
 
-Displays metadata cleanly in terminal
+Displays formatted output in terminal
 
-🔐 The implementation carefully handles:
-
-Byte-order interpretation
-
-Frame boundary validation
-
-Safe memory handling
-
-File pointer repositioning using fseek
-
-🛠 Technologies Used
+🛠 Technologies & Concepts Used
 
 C Programming
 
@@ -108,12 +96,17 @@ GCC Compiler
 
 Linux Terminal
 
-Binary File Handling (fread, fseek)
+fread, fseek
 
 Structures
 
-Byte-level parsing logic
+Byte-order interpretation
+
+Defensive error handling
+
+Modular design
 ```
+
 📂 Project Structure
 mp3-tag-reader/
 │
@@ -124,6 +117,7 @@ mp3-tag-reader/
 ├── sample.mp3
 └── README.md
 ⚙️ Compilation
+
 ```
 gcc *.c
 
@@ -141,50 +135,36 @@ Album  : Divide
 Year   : 2017
 Genre  : Pop
 Comment: Sample Comment
-🔎 Verifying ID3 Tag Using Hex Tools
+🔎 Binary Verification (Using Hex Tools)
 
-To inspect the MP3 file header:
+To verify ID3 tag manually:
 
 xxd sample.mp3 | head
 
-You should see:
+Expected:
 
 00000000: 4944 3303 0000 ...
 
-49 44 33 corresponds to "ID3".
+49 44 33 → "ID3"
 
-This confirms the presence of ID3v2 metadata.
+This confirms ID3v2 metadata presence.
 
-🎯 Core Concepts Strengthened
+💡 Key Learning Outcomes
 
-Binary file parsing
+Through this project, I strengthened:
+
+Binary-level debugging skills
+
+File format interpretation
 
 Manual protocol decoding
 
-Frame-based data structures
+Memory-safe programming
 
-Endianness awareness
-
-Defensive coding practices
-
-Modular C design
-
-📈 Learning Outcome
-
-Through this project, I developed a deeper understanding of:
-
-How structured data is stored inside files
-
-How metadata is organized at the byte level
-
-How to interpret file format specifications
-
-How to debug using hex inspection tools
-
-This project reflects my growing focus on Embedded Systems and low-level programming, where precise control over memory and data interpretation is critical.
+Systems-level thinking
 
 👨‍💻 Author
 
 Pavan
 B.Tech Graduate
-Focused on Embedded Systems & Core C Development
+Focused on Embedded Systems & Low-Level C Development
