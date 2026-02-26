@@ -1,13 +1,12 @@
-# id3-mp3-tag-reader-c
-Binary-level MP3 metadata reader implemented in C by manually parsing ID3v2 frames without external libraries.
-
+🎵 MP3 Tag Reader in C
+Binary-Level ID3v2 Metadata Parser
 🚀 Project Overview
 
 This project is a command-line MP3 Tag Reader implemented in C that extracts metadata from MP3 files by manually parsing ID3v2 tags at the binary level.
 
 Unlike high-level libraries, this implementation works directly with raw byte streams, interpreting frame structures exactly as defined in the ID3 specification.
 
-This project demonstrates strong control over:
+🔹 This project demonstrates strong control over:
 
 Binary file processing
 
@@ -53,6 +52,8 @@ An MP3 file containing ID3v2 metadata begins with:
 
 After the header, multiple frames follow.
 
+🧩 Frame Structure
+
 Each frame contains:
 
 4 bytes → Frame ID (e.g., TIT2, TPE1)
@@ -89,7 +90,7 @@ Converts binary data into readable text
 
 Displays metadata cleanly in terminal
 
-The implementation carefully handles:
+🔐 The implementation carefully handles:
 
 Byte-order interpretation
 
@@ -112,10 +113,8 @@ Binary File Handling (fread, fseek)
 Structures
 
 Byte-level parsing logic
-
-## 📂 Project Structure
-
 ```
+📂 Project Structure
 mp3-tag-reader/
 │
 ├── main.c
@@ -124,6 +123,7 @@ mp3-tag-reader/
 ├── types.h
 ├── sample.mp3
 └── README.md
+⚙️ Compilation
 ```
 gcc *.c
 
