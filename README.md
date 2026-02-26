@@ -1,12 +1,12 @@
-*🎵 #MP3 Tag Reader in C*
+🎵 MP3 Tag Reader in C
 🔎 Binary-Level ID3v2 Metadata Parser
 🚀 Project Overview
 
 This project is a command-line MP3 Tag Reader implemented in C that extracts metadata from MP3 files by manually parsing ID3v2 tags at the binary level.
 
-Instead of using external libraries, this program reads and interprets raw byte streams directly from the MP3 file, following the official ID3v2 frame structure.
+Instead of using external libraries, the program reads and interprets raw byte streams directly from the MP3 file, following the official ID3v2 specification.
 
-This demonstrates strong knowledge of:
+It demonstrates strong understanding of:
 
 Binary file handling
 
@@ -14,11 +14,11 @@ Byte-level parsing
 
 Frame-based data extraction
 
-Endianness awareness
+Endianness handling
 
 Modular C programming
 
-*🎯 Objective*
+🎯 Objective
 
 MP3 files store metadata such as:
 
@@ -34,7 +34,7 @@ Genre
 
 Comment
 
-inside structured ID3 frames.
+inside structured ID3v2 frames.
 
 This project manually decodes those frames using low-level C file operations.
 
@@ -64,7 +64,7 @@ Each ID3 frame contains:
 
 Frame Data
 
-##🎼 Supported Frames
+🎼 Supported Frames
 Frame ID	Description
 TIT2	Title
 TPE1	Artist
@@ -84,9 +84,19 @@ Iterates through frames
 
 Extracts metadata using frame size
 
-Prints formatted output to terminal
+Prints formatted output in terminal
 
-🛠 Technologies & Concepts Used
+The implementation carefully handles:
+
+Byte-order interpretation
+
+Frame boundary validation
+
+Safe memory handling
+
+File pointer repositioning using fseek
+
+🛠 Technologies Used
 
 C Programming
 
@@ -98,14 +108,12 @@ fread(), fseek()
 
 Structures
 
-Byte-order interpretation
-
 Defensive error handling
 
-Modular design
+Modular program design
 
-```
 📂 Project Structure
+
 mp3-tag-reader/
 │
 ├── main.c
@@ -114,28 +122,37 @@ mp3-tag-reader/
 ├── types.h
 ├── sample.mp3
 └── README.md
+
 ⚙️ Compilation
 
-```
+Compile using:
+
 gcc *.c
 
 This generates:
 
 a.out
+
 ▶️ Execution
+
+Run the program using:
+
 ./a.out sample.mp3
+
 📌 Sample Output
+
 MP3 Tag Reader
 
-Title  : Shape of You
+Title : Shape of You
 Artist : Ed Sheeran
-Album  : Divide
-Year   : 2017
-Genre  : Pop
+Album : Divide
+Year : 2017
+Genre : Pop
 Comment: Sample Comment
-🔎 Verifying Using Hex Tool
 
-To inspect the MP3 file header:
+🔎 Verification Using Hex Tools
+
+To verify ID3 metadata manually:
 
 xxd sample.mp3 | head
 
@@ -153,15 +170,15 @@ Binary file parsing
 
 Manual protocol decoding
 
-Memory-safe C programming
-
 Frame-based data interpretation
 
-Systems-level debugging using hex tools
+Memory-safe C programming
+
+Systems-level debugging
 
 📈 Learning Outcome
 
-Through this project, I developed deeper understanding of:
+Through this project, I strengthened my understanding of:
 
 File format internals
 
@@ -169,9 +186,9 @@ Metadata storage structure
 
 Byte-level debugging
 
-Writing clean and modular C programs
+Clean modular C programming
 
-This project aligns with my focus on Embedded Systems and low-level software development.
+This project aligns with my focus on Embedded Systems and low-level software development, where precise control over memory and data interpretation is critical.
 
 👨‍💻 Author
 
