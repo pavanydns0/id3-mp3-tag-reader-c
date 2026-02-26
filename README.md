@@ -113,7 +113,9 @@ Structures
 
 Byte-level parsing logic
 
-📂 Project Structure
+## 📂 Project Structure
+
+```
 mp3-tag-reader/
 │
 ├── main.c
@@ -122,7 +124,7 @@ mp3-tag-reader/
 ├── types.h
 ├── sample.mp3
 └── README.md
-⚙️ Compilation
+```
 gcc *.c
 
 This generates:
